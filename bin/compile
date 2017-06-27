@@ -226,4 +226,5 @@ indent() {
 }
 
 cd $BUILD_DIR
+npm install 
 gulp build 2>&1 | indent
