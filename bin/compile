@@ -217,3 +217,13 @@ summarize_build | output "$LOG_FILE"
 
 warn_no_start "$LOG_FILE"
 warn_unmet_dep "$LOG_FILE"
+
+###### run gulp build ########
+
+indent() {
+    RE="s/^/       /"
+    [ $(uname) == "Darwin" ] && sed -l "$RE" || sed -u "$RE"
+}
+
+cd $BUILD_DIR
+gulp build 2>&1 | indent
